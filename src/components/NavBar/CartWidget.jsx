@@ -1,6 +1,6 @@
-import React from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import './css/cartwidget.css'
+
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "../styles/cartwidget.css";
 
 
 function CartWidget() {

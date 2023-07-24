@@ -1,12 +1,14 @@
-import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
+import NavBar from "./components/NavBar/NavBar.jsx"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx";
 import "./App.css";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer.jsx";
 
 function App() {
     return (
         <div className="App">
             <NavBar />
-            <ItemListContainer greeting="Tienes 0 Productos en el Carrito!" />
+            <ItemListContainer greeting="Bienvenid@" />
+            <ItemDetailContainer />
         </div>
     );
 }
