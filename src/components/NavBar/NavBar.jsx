@@ -7,12 +7,14 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 //Estilos
 import "../styles/navBar.css";
+// Router
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-dark navbar-dark">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={NavLink} to="/">
           <img src="/img/letrasW.png"
             alt="logo-Memini"
             height="25" />
@@ -20,15 +22,13 @@ function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#">Inicio</Nav.Link>
+            <Nav.Link as={NavLink} to="/">Inicio</Nav.Link>
             <NavDropdown title="Productos" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Joyeria</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Textil
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Accesorios</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/category/Joyeria">Joyeria</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/category/Textil">Textil</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/category/Accesorios">Accesorios</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#">Información</Nav.Link>
+            {/* <Nav.Link href="#">Información</Nav.Link> */}
           </Nav>
           <Nav>
             <CartWidget />

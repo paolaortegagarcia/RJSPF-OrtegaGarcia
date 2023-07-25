@@ -1,4 +1,5 @@
 import ItemCount from "./ItemCount";
+import "../styles/itemdetail.css"
 function ItemDetail({ producto }) {
 
   const onAdd = (cantidad) => {
@@ -8,7 +9,7 @@ function ItemDetail({ producto }) {
   return (
     <div className="d-flex flex-column align-items-center">
       <h3>Detalle de: {producto.name}</h3>
-      <img src={producto.img} alt={producto.name} />
+      <img src={producto.img} alt={producto.name} className="productoImg" />
       <p>{producto.description}</p>
       <p>${producto.price}</p>
       <ItemCount

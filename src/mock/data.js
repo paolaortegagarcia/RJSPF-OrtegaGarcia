@@ -4,7 +4,7 @@ const lista = [
     category: "Textil",
     name: "Scrunchie",
     price: 200,
-    description: "Scrunchies de algodón, tamaño grando y variedad de colores",
+    description: "Scrunchies de algodón, tamaño grande y variedad de colores",
     img: "../img/textil-scrunchies.jpg",
     stock: 20
   },
@@ -37,15 +37,15 @@ export const getProducts = () => {
       } else {
         resolve(lista)
       }
-    }, 3000)
+    }, 1000)
   })
 }
 
-export const getItem= () => {
+export const getItem= (key) => {
   return new Promise((resolve)=>{
     setTimeout(() => {
-      resolve(lista[2])
-    }, 2000);
+      resolve(lista.find((item)=> item.key === key))
+    }, 1000);
   })
 }
 

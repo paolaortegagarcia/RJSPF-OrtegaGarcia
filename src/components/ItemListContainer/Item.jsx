@@ -1,5 +1,8 @@
+// Esta es la card de los items
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 function Item({ producto }) {
   return (
     <Card style={{ width: '18rem' }}>
@@ -9,7 +12,7 @@ function Item({ producto }) {
         <Card.Text>
           ${producto.price}
         </Card.Text>
-        <Button variant="primary">Ver más</Button>
+        <Button as={Link} to={`/item/${producto.key}`} variant="dark">Ver más</Button>
       </Card.Body>
     </Card>
   )

@@ -1,3 +1,5 @@
+// Este es el map para hacer la cantidad de cards necesarias segun mis items
+
 import Item from "./Item.jsx"
 function Itemlist({ productos }) {
   return (
