@@ -13,7 +13,7 @@ function ItemDetailContainer() {
       .then((res) => setProducto(res))
       .catch((error) => console.log(error))
       .finally(() => setLoading(false))
-  }, [])
+  }, [key])
 
   return (
 
