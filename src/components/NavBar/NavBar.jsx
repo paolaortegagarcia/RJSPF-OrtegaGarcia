@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 //Estilos
-import "../styles/navBar.css";
+import "./css/navBar.css";
 // Router
 import { NavLink } from "react-router-dom";
 

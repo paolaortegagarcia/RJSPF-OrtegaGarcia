@@ -12,7 +12,7 @@ function Item({ producto }) {
         <Card.Text>
           ${producto.price}
         </Card.Text>
-        <Button as={Link} to={`/item/${producto.key}`} variant="dark">Ver más</Button>
+        <Button as={Link} to={`/item/${producto.key}`} variant="dark" state={{ stock: producto.stock }}>Ver más</Button>
       </Card.Body>
     </Card>
   )

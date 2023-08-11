@@ -1,6 +1,6 @@
 import ItemList from "./ItemList.jsx";
 import { getProducts } from "../../mock/data.js";
-import "../styles/itemlistcontainer.css";
+import "./css/itemlistcontainer.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 

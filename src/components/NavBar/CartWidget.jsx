@@ -1,13 +1,16 @@
-
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "../styles/cartwidget.css";
-
-
+import "./css/cartwidget.css";
 function CartWidget() {
+  const { cantidadTotal } = useContext(CartContext);
+
   return (
-    <i className="bi bi-bag-heart-fill" style={{ color: 'white' }}>
-      <span>0</span>
-    </i>
+    <Link to="/cart" className="cart-icon" style={{ display: cantidadTotal() > 0 ? "block" : "none" }}>
+      <i className="bi bi-bag-heart-fill" style={{ color: 'white' }} />
+      <span className="total">{cantidadTotal()}</span>
+    </Link>
   );
 }
 

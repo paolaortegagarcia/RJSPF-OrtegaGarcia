@@ -4,7 +4,7 @@ import "./App.css";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer.jsx";
 import { BrowserRouter, Routes , Route } from "react-router-dom";
 import CartContainer from "./components/CartContainer/CartContainer.jsx";
-import CartContextProvider from "./components/Context/CartContext.jsx";
+import CartContextProvider from "./Context/CartContext.jsx";
 //BrowserRouter: Evalua que va a mostrar en cada ruta
 //Routes: Definir las rutas
 

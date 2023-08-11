@@ -1,9 +1,10 @@
 import ItemCount from "./ItemCount";
-import "../styles/itemdetail.css"
+import "./css/itemdetail.css"
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { CartContext } from "../Context/CartContext";
+import { CartContext } from "../../Context/CartContext";
+
 function ItemDetail({ producto }) {
   const { addItem } = useContext(CartContext);
 
