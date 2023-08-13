@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import "./css/cartcheckout.css";
-import useCart from '../../context/useCart';
+import useCart from '../../Context/useCart';
 
 function CartCheckout() {
   const { clear } = useCart();
