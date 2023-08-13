@@ -1,3 +1,7 @@
+# Deployment
+
+[Link al E-commerce de Memini](https://rjs-proyecto-final-ortega-garcia-nbeiy5dmj-paolaortegagarcia.vercel.app/)
+
 # E-commerce de Memini
 
 Bienvenido/a al repositorio de la tienda de accesorios de Memini. En esta tienda, encontrarás una variedad de productos emocionantes que seguro te encantarán.
