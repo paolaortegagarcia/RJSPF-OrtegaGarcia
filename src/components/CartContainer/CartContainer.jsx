@@ -1,11 +1,45 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { CartContext } from "../../Context/CartContext";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import "./css/cartcontainer.css"
+import "./css/cartcontainer.css";
+import useCart from "../../context/useCart";
+import { addDoc, getFirestore, collection } from "firebase/firestore";
 
 function CartContainer() {
-  const { cart, removeItem, clear, precioTotal } = useContext(CartContext);
+  const { cart, removeItem, clear, totalPrice } = useCart();
+  const [orderId, setOrderId] = useState();
+  const navigate = useNavigate();
+
+  const order = {
+    buyer: {
+      name: "Paola",
+      email: "pao@coderhouse.com",
+      phone: "1122334455"
+    },
+    items: cart.map(product => ({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: product.quantity
+    })),
+    total: totalPrice(),
+
+  }
+
+  function handleOrder() {
+    const db = getFirestore();
+    const ordersCollection = collection(db, "orders");
+
+    addDoc(ordersCollection, order)
+      .then(({ id }) => {
+        setOrderId(id);
+        console.log(id);
+        navigate(`/cart/checkout/${id}`);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 
   return (
     <div className="cart-container">
@@ -19,30 +53,41 @@ function CartContainer() {
         </div>
       ) : (
         <div className="cart-items">
-          {cart.map((item) => (
-            <div className="cart-item" key={item.key}>
-              <div className="item-details">
-                <p>{item.name}</p>
-                <p>Cantidad: {item.cantidad}</p>
-                <p>Precio por Unidad: ${item.price}</p>
-                <Button
-                  variant="dark"
-                  onClick={() => removeItem(item.key)}
-                >
-                  Eliminar
-                </Button>
-              </div>
-            </div>
-          ))}
+          <table className="cart-table">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio por Unidad</th>
+                <th>Total</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.name}</td>
+                  <td>{item.quantity}</td>
+                  <td>${item.price}</td>
+                  <td>${item.price * item.quantity}</td>
+                  <td>
+                    <Button variant="dark" onClick={() => removeItem(item.id)}>
+                      Eliminar
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
           <div className="cart-summary">
-            <p>Precio Total: ${precioTotal()}</p>
+            <p>Precio Total: ${totalPrice()}</p>
             <Button variant="dark" onClick={clear}>
               Vaciar Carrito
             </Button>
             <Button as={Link} to="/" variant="dark">
               Seguir Comprando
             </Button>
-            <Button as={Link} to="/" variant="outline-dark">
+            <Button as={Link} to={`/cart/checkout/${orderId}`} variant="outline-dark" onClick={handleOrder}>
               Terminar mi Compra
             </Button>
           </div>

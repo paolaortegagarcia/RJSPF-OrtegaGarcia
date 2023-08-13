@@ -4,9 +4,9 @@ import "./App.css";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer.jsx";
 import { BrowserRouter, Routes , Route } from "react-router-dom";
 import CartContainer from "./components/CartContainer/CartContainer.jsx";
-import CartContextProvider from "./Context/CartContext.jsx";
-//BrowserRouter: Evalua que va a mostrar en cada ruta
-//Routes: Definir las rutas
+import CartContextProvider from "./context/CartProvider.jsx";
+import CartCheckout from "./components/CartContainer/CartCheckout.jsx";
+
 
 function App() {
     return (
@@ -17,8 +17,9 @@ function App() {
                     <Routes>
                         <Route path="/" element={ <ItemListContainer greeting="Bienvenid@" /> } />
                         <Route path="/category/:categoryKey" element={ <ItemListContainer greeting="Categoría:" /> } />
-                        <Route path="/item/:key" element={ <ItemDetailContainer /> } />
+                        <Route path="/item/:id" element={ <ItemDetailContainer /> } />
                         <Route path="/cart" element={ <CartContainer /> } />
+                        <Route path="/cart/checkout/:orderId" element={<CartCheckout />} />
                     </Routes>
                 </CartContextProvider>
             </BrowserRouter>

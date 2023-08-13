@@ -3,16 +3,16 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 
-function Item({ producto }) {
+function Item({ product }) {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={producto.img} />
+      <Card.Img variant="top" src={product.img} />
       <Card.Body>
-        <Card.Title>{producto.name}</Card.Title>
+        <Card.Title>{product.name}</Card.Title>
         <Card.Text>
-          ${producto.price}
+          ${product.price}
         </Card.Text>
-        <Button as={Link} to={`/item/${producto.key}`} variant="dark" state={{ stock: producto.stock }}>Ver más</Button>
+        <Button as={Link} to={`/item/${product.id}`} variant="dark" state={{ stock: product.stock }}>Ver más</Button>
       </Card.Body>
     </Card>
   )

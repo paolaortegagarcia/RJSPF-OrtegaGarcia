@@ -1,14 +1,18 @@
-// Este es el map para hacer la cantidad de cards necesarias segun mis items
-
 import Item from "./Item";
 
 
-function Itemlist({ productos }) {
+function Itemlist({ products }) {
+  if (!products) {
+    return <p>Cargando...</p>;
+  }
+
   return (
     <div className="d-flex align-items-center flex-wrap">
-      {productos.map((producto) => <Item key={producto.key} producto={producto} />)}
+      {products.map((product) => (
+        <Item key={product.id} product={product} />
+      ))}
     </div>
-  )
+  );
 }
 
 export default Itemlist;
