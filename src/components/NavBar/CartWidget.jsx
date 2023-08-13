@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import useCart from "../../context/useCart";
+import useCart from "../../Context/useCart";
 import "./css/cartwidget.css"
 
 function CartWidget() {
