@@ -3,7 +3,7 @@ import "./css/itemdetail.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import useCart from "../../context/useCart";
+import useCart from "../../Context/useCart";
 
 function ItemDetail({ product }) {
   const { addItem } = useCart();

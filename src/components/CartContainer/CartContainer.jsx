@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "./css/cartcontainer.css";
-import useCart from "../../context/useCart";
+import useCart from "../../Context/useCart";
 import { addDoc, getFirestore, collection } from "firebase/firestore";
 
 function CartContainer() {
