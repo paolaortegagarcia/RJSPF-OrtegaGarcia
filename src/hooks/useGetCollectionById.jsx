@@ -1,7 +1,7 @@
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
-function useGetCollectionByCategory(categoryKey) {
+function useGetCollectionById(categoryKey) {
   const [collectionData, setCollectionData] = useState(null);
 
   useEffect(() => {
@@ -47,4 +47,4 @@ function useGetCollectionByCategory(categoryKey) {
   return { collectionData };
 }
 
-export default useGetCollectionByCategory;
+export default useGetCollectionById;
